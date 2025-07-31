@@ -1,0 +1,102 @@
+[
+  {
+    "Id": 1,
+    "name": "Wireless Bluetooth Headphones",
+    "sku": "WBH-001",
+    "category": "Electronics",
+    "price": 79.99,
+    "currentStock": 25,
+    "lowStockThreshold": 10,
+    "lastUpdated": "2024-01-15T10:30:00Z"
+  },
+  {
+    "Id": 2,
+    "name": "Organic Cotton T-Shirt",
+    "sku": "OCT-002",
+    "category": "Clothing",
+    "price": 24.99,
+    "currentStock": 3,
+    "lowStockThreshold": 5,
+    "lastUpdated": "2024-01-14T15:45:00Z"
+  },
+  {
+    "Id": 3,
+    "name": "Stainless Steel Water Bottle",
+    "sku": "SSW-003",
+    "category": "Home & Garden",
+    "price": 19.99,
+    "currentStock": 42,
+    "lowStockThreshold": 15,
+    "lastUpdated": "2024-01-13T09:20:00Z"
+  },
+  {
+    "Id": 4,
+    "name": "Leather Wallet",
+    "sku": "LW-004",
+    "category": "Accessories",
+    "price": 49.99,
+    "currentStock": 0,
+    "lowStockThreshold": 8,
+    "lastUpdated": "2024-01-12T14:10:00Z"
+  },
+  {
+    "Id": 5,
+    "name": "Smartphone Case",
+    "sku": "SC-005",
+    "category": "Electronics",
+    "price": 15.99,
+    "currentStock": 18,
+    "lowStockThreshold": 20,
+    "lastUpdated": "2024-01-11T11:55:00Z"
+  },
+  {
+    "Id": 6,
+    "name": "Coffee Mug Set",
+    "sku": "CMS-006",
+    "category": "Home & Garden",
+    "price": 32.99,
+    "currentStock": 7,
+    "lowStockThreshold": 12,
+    "lastUpdated": "2024-01-10T16:30:00Z"
+  },
+  {
+    "Id": 7,
+    "name": "Running Shoes",
+    "sku": "RS-007",
+    "category": "Sports",
+    "price": 89.99,
+    "currentStock": 15,
+    "lowStockThreshold": 8,
+    "lastUpdated": "2024-01-09T08:15:00Z"
+  },
+  {
+    "Id": 8,
+    "name": "Desk Lamp",
+    "sku": "DL-008",
+    "category": "Home & Garden",
+    "price": 45.99,
+    "currentStock": 2,
+    "lowStockThreshold": 6,
+    "lastUpdated": "2024-01-08T13:40:00Z"
+  },
+  {
+    "Id": 9,
+    "name": "Protein Powder",
+    "sku": "PP-009",
+    "category": "Health",
+    "price": 34.99,
+    "currentStock": 28,
+    "lowStockThreshold": 10,
+    "lastUpdated": "2024-01-07T12:25:00Z"
+  },
+  {
+    "Id": 10,
+    "name": "Board Game",
+    "sku": "BG-010",
+    "category": "Toys & Games",
+    "price": 39.99,
+    "currentStock": 6,
+    "lowStockThreshold": 8,
+    "lastUpdated": "2024-01-06T17:50:00Z"
+  }
+]

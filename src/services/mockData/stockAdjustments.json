@@ -1,0 +1,42 @@
+[
+  {
+    "Id": 1,
+    "productId": 1,
+    "type": "increase",
+    "quantity": 10,
+    "reason": "Received shipment",
+    "timestamp": "2024-01-15T10:30:00Z"
+  },
+  {
+    "Id": 2,
+    "productId": 2,
+    "type": "decrease",
+    "quantity": 2,
+    "reason": "Sale",
+    "timestamp": "2024-01-14T15:45:00Z"
+  },
+  {
+    "Id": 3,
+    "productId": 3,
+    "type": "increase",
+    "quantity": 20,
+    "reason": "Received shipment",
+    "timestamp": "2024-01-13T09:20:00Z"
+  },
+  {
+    "Id": 4,
+    "productId": 4,
+    "type": "decrease",
+    "quantity": 5,
+    "reason": "Sale",
+    "timestamp": "2024-01-12T14:10:00Z"
+  },
+  {
+    "Id": 5,
+    "productId": 5,
+    "type": "decrease",
+    "quantity": 3,
+    "reason": "Damaged goods",
+    "timestamp": "2024-01-11T11:55:00Z"
+  }
+]

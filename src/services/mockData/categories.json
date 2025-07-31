@@ -1,0 +1,52 @@
+[
+  {
+    "Id": 1,
+    "name": "Electronics",
+    "color": "#3B82F6"
+  },
+  {
+    "Id": 2,
+    "name": "Clothing",
+    "color": "#10B981"
+  },
+  {
+    "Id": 3,
+    "name": "Home & Garden",
+    "color": "#F59E0B"
+  },
+  {
+    "Id": 4,
+    "name": "Accessories",
+    "color": "#EF4444"
+  },
+  {
+    "Id": 5,
+    "name": "Sports",
+    "color": "#8B5CF6"
+  },
+  {
+    "Id": 6,
+    "name": "Health",
+    "color": "#06B6D4"
+  },
+  {
+    "Id": 7,
+    "name": "Toys & Games",
+    "color": "#F97316"
+  },
+  {
+    "Id": 8,
+    "name": "Beauty",
+    "color": "#EC4899"
+  },
+  {
+    "Id": 9,
+    "name": "Books",
+    "color": "#84CC16"
+  },
+  {
+    "Id": 10,
+    "name": "Food & Beverage",
+    "color": "#6366F1"
+  }
+]
