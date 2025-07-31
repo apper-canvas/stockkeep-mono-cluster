@@ -12,35 +12,35 @@ const ProductModal = ({
   categories, 
   onSave 
 }) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    sku: "",
-    category: "",
-    price: 0,
-    currentStock: 0,
-    lowStockThreshold: 5
+const [formData, setFormData] = useState({
+    Name: "",
+    sku_c: "",
+    category_c: "",
+    price_c: 0,
+    currentStock_c: 0,
+    lowStockThreshold_c: 5
   })
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
-    if (product) {
+if (product) {
       setFormData({
-        name: product.name || "",
-        sku: product.sku || "",
-        category: product.category || "",
-        price: product.price || 0,
-        currentStock: product.currentStock || 0,
-        lowStockThreshold: product.lowStockThreshold || 5
+        Name: product.Name || "",
+        sku_c: product.sku_c || "",
+        category_c: product.category_c?.Name || product.category_c || "",
+        price_c: product.price_c || 0,
+        currentStock_c: product.currentStock_c || 0,
+        lowStockThreshold_c: product.lowStockThreshold_c || 5
       })
     } else {
       setFormData({
-        name: "",
-        sku: "",
-        category: "",
-        price: 0,
-        currentStock: 0,
-        lowStockThreshold: 5
+        Name: "",
+        sku_c: "",
+        category_c: "",
+        price_c: 0,
+        currentStock_c: 0,
+        lowStockThreshold_c: 5
       })
     }
     setErrors({})
@@ -49,28 +49,28 @@ const ProductModal = ({
   const validateForm = () => {
     const newErrors = {}
     
-    if (!formData.name.trim()) {
-      newErrors.name = "Product name is required"
+if (!formData.Name.trim()) {
+      newErrors.Name = "Product name is required"
     }
     
-    if (!formData.sku.trim()) {
-      newErrors.sku = "SKU is required"
+    if (!formData.sku_c.trim()) {
+      newErrors.sku_c = "SKU is required"
     }
     
-    if (!formData.category.trim()) {
-      newErrors.category = "Category is required"
+    if (!formData.category_c.trim()) {
+      newErrors.category_c = "Category is required"
     }
     
-    if (formData.price <= 0) {
-      newErrors.price = "Price must be greater than 0"
+    if (formData.price_c <= 0) {
+      newErrors.price_c = "Price must be greater than 0"
     }
     
-    if (formData.currentStock < 0) {
-      newErrors.currentStock = "Stock cannot be negative"
+    if (formData.currentStock_c < 0) {
+      newErrors.currentStock_c = "Stock cannot be negative"
     }
     
-    if (formData.lowStockThreshold < 0) {
-      newErrors.lowStockThreshold = "Threshold cannot be negative"
+    if (formData.lowStockThreshold_c < 0) {
+      newErrors.lowStockThreshold_c = "Threshold cannot be negative"
     }
     
     setErrors(newErrors)
@@ -88,12 +88,14 @@ const ProductModal = ({
     setIsSubmitting(true)
     
     try {
-      await onSave({
-        ...formData,
-        price: parseFloat(formData.price),
-        currentStock: parseInt(formData.currentStock),
-        lowStockThreshold: parseInt(formData.lowStockThreshold),
-        lastUpdated: new Date().toISOString()
+await onSave({
+        Name: formData.Name,
+        sku_c: formData.sku_c,
+        category_c: formData.category_c,
+        price_c: parseFloat(formData.price_c),
+        currentStock_c: parseInt(formData.currentStock_c),
+        lowStockThreshold_c: parseInt(formData.lowStockThreshold_c),
+        lastUpdated_c: new Date().toISOString()
       })
       
       toast.success(

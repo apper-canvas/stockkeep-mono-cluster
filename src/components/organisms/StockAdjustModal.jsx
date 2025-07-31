@@ -25,13 +25,13 @@ const StockAdjustModal = ({
   }, [isOpen])
 
   const calculateNewStock = () => {
-    if (!product || !quantity) return product?.currentStock || 0
+if (!product || !quantity) return product?.currentStock_c || 0
     
     const qty = parseInt(quantity)
     if (adjustmentType === "increase") {
-      return product.currentStock + qty
+      return product.currentStock_c + qty
     } else {
-      return Math.max(0, product.currentStock - qty)
+      return Math.max(0, product.currentStock_c - qty)
     }
   }
 
@@ -65,8 +65,8 @@ const StockAdjustModal = ({
 
   if (!product) return null
 
-  const newStock = calculateNewStock()
-  const stockDifference = newStock - product.currentStock
+const newStock = calculateNewStock()
+  const stockDifference = newStock - product.currentStock_c
 
   return (
     <Modal
@@ -77,10 +77,10 @@ const StockAdjustModal = ({
     >
       <div className="space-y-6">
         <div className="bg-slate-50 rounded-lg p-4 border">
-          <h3 className="font-semibold text-slate-800 mb-2">{product.name}</h3>
+          <h3 className="font-semibold text-slate-800 mb-2">{product.Name}</h3>
           <div className="text-sm text-slate-600">
-            <div>SKU: <span className="font-mono">{product.sku}</span></div>
-            <div>Current Stock: <span className="font-semibold text-slate-800">{product.currentStock}</span></div>
+            <div>SKU: <span className="font-mono">{product.sku_c}</span></div>
+            <div>Current Stock: <span className="font-semibold text-slate-800">{product.currentStock_c}</span></div>
           </div>
         </div>
 
@@ -138,8 +138,8 @@ const StockAdjustModal = ({
               <h4 className="font-semibold text-primary-800 mb-2">Stock Preview</h4>
               <div className="space-y-1 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-slate-600">Current Stock:</span>
-                  <span className="font-semibold text-slate-800">{product.currentStock}</span>
+<span className="text-slate-600">Current Stock:</span>
+                  <span className="font-semibold text-slate-800">{product.currentStock_c}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-600">Adjustment:</span>

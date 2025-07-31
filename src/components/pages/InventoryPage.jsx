@@ -52,21 +52,22 @@ const InventoryPage = () => {
     loadData()
   }, [])
 
-  const filteredProducts = useMemo(() => {
+const filteredProducts = useMemo(() => {
     return products.filter(product => {
       const matchesSearch = 
-        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        product.sku.toLowerCase().includes(searchTerm.toLowerCase())
+        product.Name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.sku_c?.toLowerCase().includes(searchTerm.toLowerCase())
       
-      const matchesCategory = !selectedCategory || product.category === selectedCategory
+      const categoryName = product.category_c?.Name || product.category_c
+      const matchesCategory = !selectedCategory || categoryName === selectedCategory
       
       return matchesSearch && matchesCategory
     })
   }, [products, searchTerm, selectedCategory])
 
-  const lowStockProducts = useMemo(() => {
+const lowStockProducts = useMemo(() => {
     return products.filter(product => 
-      product.currentStock <= product.lowStockThreshold && product.currentStock > 0
+      product.currentStock_c <= product.lowStockThreshold_c && product.currentStock_c > 0
     )
   }, [products])
 
@@ -118,20 +119,20 @@ const InventoryPage = () => {
       const product = products.find(p => p.Id === productId)
       if (!product) return
       
-      const adjustmentData = {
-        productId: productId,
-        type: newStock > product.currentStock ? "increase" : "decrease",
-        quantity: Math.abs(newStock - product.currentStock),
-        reason: reason,
-        timestamp: new Date().toISOString()
+const adjustmentData = {
+        Name: `Stock adjustment for ${product.Name}`,
+        productId_c: productId,
+        type_c: newStock > product.currentStock_c ? "increase" : "decrease",
+        quantity_c: Math.abs(newStock - product.currentStock_c),
+        reason_c: reason,
+        timestamp_c: new Date().toISOString()
       }
       
       await stockAdjustmentService.create(adjustmentData)
       
       const updatedProduct = await productService.update(productId, {
-        ...product,
-        currentStock: newStock,
-        lastUpdated: new Date().toISOString()
+        currentStock_c: newStock,
+        lastUpdated_c: new Date().toISOString()
       })
       
       setProducts(prev => prev.map(p => p.Id === productId ? updatedProduct : p))

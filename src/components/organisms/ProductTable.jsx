@@ -23,9 +23,17 @@ const ProductTable = ({
     }
   }
 
-  const sortedProducts = [...products].sort((a, b) => {
+const sortedProducts = [...products].sort((a, b) => {
     let aValue = a[sortField]
     let bValue = b[sortField]
+    
+    // Handle lookup objects (e.g., category_c)
+    if (aValue && typeof aValue === 'object' && aValue.Name) {
+      aValue = aValue.Name
+    }
+    if (bValue && typeof bValue === 'object' && bValue.Name) {
+      bValue = bValue.Name
+    }
     
     if (typeof aValue === "string") {
       aValue = aValue.toLowerCase()
@@ -66,20 +74,20 @@ const ProductTable = ({
         <table className="w-full">
           <thead className="bg-gradient-to-r from-slate-50 to-slate-100 border-b border-slate-200">
             <tr>
-              <th className="text-left px-6 py-4 font-semibold text-slate-700">
-                <SortButton field="name">Product Name</SortButton>
+<th className="text-left px-6 py-4 font-semibold text-slate-700">
+                <SortButton field="Name">Product Name</SortButton>
               </th>
               <th className="text-left px-6 py-4 font-semibold text-slate-700">
-                <SortButton field="sku">SKU</SortButton>
+                <SortButton field="sku_c">SKU</SortButton>
               </th>
               <th className="text-left px-6 py-4 font-semibold text-slate-700">
-                <SortButton field="category">Category</SortButton>
+                <SortButton field="category_c">Category</SortButton>
               </th>
               <th className="text-right px-6 py-4 font-semibold text-slate-700">
-                <SortButton field="price">Price</SortButton>
+                <SortButton field="price_c">Price</SortButton>
               </th>
               <th className="text-center px-6 py-4 font-semibold text-slate-700">
-                <SortButton field="currentStock">Stock</SortButton>
+                <SortButton field="currentStock_c">Stock</SortButton>
               </th>
               <th className="text-center px-6 py-4 font-semibold text-slate-700">Status</th>
               <th className="text-center px-6 py-4 font-semibold text-slate-700">Quick Adjust</th>
@@ -89,31 +97,31 @@ const ProductTable = ({
           <tbody className="divide-y divide-slate-100">
             {sortedProducts.map((product) => (
               <tr key={product.Id} className="table-hover-row">
-                <td className="px-6 py-4">
-                  <div className="font-medium text-slate-800">{product.name}</div>
+<td className="px-6 py-4">
+                  <div className="font-medium text-slate-800">{product.Name}</div>
                 </td>
                 <td className="px-6 py-4">
                   <span className="text-sm font-mono text-slate-600 bg-slate-100 px-2 py-1 rounded">
-                    {product.sku}
+                    {product.sku_c}
                   </span>
                 </td>
                 <td className="px-6 py-4">
-                  <span className="text-sm text-slate-600">{product.category}</span>
+                  <span className="text-sm text-slate-600">{product.category_c?.Name || product.category_c}</span>
                 </td>
                 <td className="px-6 py-4 text-right">
                   <span className="font-semibold text-slate-800">
-                    ${product.price.toFixed(2)}
+                    ${product.price_c?.toFixed(2) || '0.00'}
                   </span>
                 </td>
                 <td className="px-6 py-4 text-center">
                   <span className="font-bold text-lg text-slate-800">
-                    {product.currentStock}
+                    {product.currentStock_c}
                   </span>
                 </td>
                 <td className="px-6 py-4 text-center">
                   <StockBadge 
-                    currentStock={product.currentStock}
-                    lowStockThreshold={product.lowStockThreshold}
+                    currentStock={product.currentStock_c}
+                    lowStockThreshold={product.lowStockThreshold_c}
                   />
                 </td>
                 <td className="px-6 py-4 text-center">
